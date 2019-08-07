@@ -4,8 +4,32 @@
 
 {% block body %}
 
-<h2 class="jumbotron text-center mt-4">
-	This is the hello page.
-<h2/>
+	<h2 class="text-center mt-4 mb-4">
+		This is the hello page.
+	<h2/>
+	{% if app.request.query.get("name") is not null %}
+		<p class="jumbotron text-center text-capitalize">
+			Hello {{ app.request.query.get("name") }}!
+		<p/>
+		<p class="text-center small font-weight-normal ">
+			Check the following link on how to check null or empty in twig,
+			<br/>
+			<a href="https://straightupcraft.com/articles/testing-if-something-exists-is-defined-length-is-not-null-is-not-empty#how-can-you-tell-if-a-variable-has-a-value">How can you tell if a variable has a value?</a>
+		<p/>
+	{% else %}
+			<p class="text-center small font-weight-normal ">
+			Check the following link,
+			<br/>
+			<a href="{{ url('hello_page', { 'name': 'rafik' }) }}"/>{{ url('hello_page', { 'name': 'rafik' }) }}</a>
+		</p>
+	{% endif %}
 
+{% endblock %}
+
+{% block stylesheets %}
+<style>
+	p.small {
+		font-size: 18px !important;
+	}
+</style>
 {% endblock %}
