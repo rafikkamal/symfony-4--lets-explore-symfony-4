@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello Page{% endblock %}
+
+{% block body %}
+
+	<h2 class="text-center mt-5">Tutorial 4</h2>
+
+	<p class="text-center small font-weight-normal">
+		<a href="https://codereviewvideos.com/course/symfony-4-beginners-tutorial/video/symfony-controllers">Symfony Controllers - Making Your App Work For You</a>
+	<p/>
+
+	<p class="text-center small font-weight-normal mt-1">
+		Printing data passed from the controller,
+	<p/>
+	
+	<p class="jumbotron text-center small mt-1">
+		<span>Variable passed from {{ controller_name | default('controller') }}</span>
+		<br/>
+		<span class="pb-1 pt-1 font-weight-bold custom-font">{{ some_variable | default('Variable was not declared!') }}</span>
+	<p/>
+
+
+	<p class="text-center small font-weight-normal mt-1">
+		Printing data passed from the url which is retrieved by the controller from the Request object. If no name is passed then the default name(Ex: Rafik Kamal) will be sent.
+	<p/>
+	
+	<p class="jumbotron text-center small mt-1">
+		<span>Name passed through the url as a request</span>
+		<br/>
+		<span class="pb-1 pt-1 font-weight-bold custom-font">{{ name | default('Name was not declared!') }}</span>
+		<br/>
+		{% if name_test_link is not null %}
+			<a href="{{ name_test_link }}">{{ name_test_link }}</a>
+		{% endif %}
+	<p/>
+
+	<p class="text-center small font-weight-normal mt-1">
+		Printing data passed from the url which is retrieved by the controller as part of the url. If no name("name_one") is passed then the default name(Ex: Md Rafik Kamal) will be sent which is set in the Route annotation.
+	<p/>
+	
+	<p class="jumbotron text-center small mt-1">
+		<span>Name passed as a part of the url</span>
+		<br/>
+		<span class="pb-1 pt-1 font-weight-bold custom-font">{{ name_one | default('Name was not declared!') }}</span>
+		<br/>
+		{% if name_test_link is not null %}
+			<a href="{{ name_one_test_link }}">{{ name_one_test_link }}</a>
+		{% endif %}
+	<p/>
+
+{% endblock %}
+
+{% block stylesheets %}
+<style>
+	p.small {
+		font-size: 18px !important;
+	}
+	span.custom-font {
+		font-size:28px;
+	}
+</style>
+{% endblock %}
