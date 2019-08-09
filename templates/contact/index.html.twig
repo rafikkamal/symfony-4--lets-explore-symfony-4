@@ -4,11 +4,20 @@
 
 {% block body %}
 
+	<h2 class="mt-3 text-center">Tutorial 4</h2>
+	<h4 class="text-center">Simple Symfony 4 Contact Form</h4>
+	<hr/>
     <div>
         {{ form_start(our_form) }}
+
         {{ form_widget(our_form) }}
 
-        <input type="submit" value="Send" />
+        <div class="form-group row">
+        	<div class="col-sm-2"></div>
+        	<div class="col-sm-10">
+        		<input type="submit" value="Send" class="btn btn-primary btn-lg" />
+        	</div>
+        </div>
 
         {{ form_end(our_form) }}
     </div>
